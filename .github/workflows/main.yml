@@ -96,7 +96,8 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - run: mkdir -p logs/
+      - run: 
+          mkdir -p logs/
       
       - name: bandit scan for source code
         uses: jpetrucciani/bandit-check@master
