@@ -88,7 +88,19 @@ jobs:
       - name: Run remote code execution tests
         run: |
           python tests/test_04.py
-          
+
+  sast:
+    needs: [build, sca]
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      
+      - name: bandit scan for source code
+        uses: jpetrucciani/bandit-check@master
+        with:
+          path: 'app/web/chaimtube.py'
+          bandit_flags: '-lll -o output.json -f json'    
           
   deploy:
     needs: test
