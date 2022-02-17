@@ -14,7 +14,7 @@ jobs:
       - name: Creating exclude path
         run: |
           mkdir -p configuration
-          echo 'app/' > configuration/exclude_path.txt
+          echo 'app/' > configuration/exclude_path.txt //
 
       - uses: max/secret-scan@master
         with:
